@@ -51,7 +51,7 @@ instance functorForEachData :: Functor ForEachData where
 -- The type of actions, for button clicks etc.
 --
 
-type Action = forall eff. Eff (reactive :: Reactive | eff) {}
+type Action = forall eff. Eff (reactive :: Reactive | eff) Unit
 
 --
 --
@@ -80,8 +80,8 @@ type Html = Free HtmlF
 element :: forall b. String -> [Attribute] -> Html b -> Html b
 element elem attrs children = liftF $ Element $ mkElementData elem attrs children (\b -> b)
 
-text :: String -> Html {}
-text s = liftF $ Text s {}
+text :: String -> Html Unit
+text s = liftF $ Text s unit
 
 label :: Computed String -> [Attribute] -> Html Subscription
 label c attrs = liftF $ Label c attrs (\s -> s)

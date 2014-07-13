@@ -15,7 +15,6 @@
   ],
   "keywords": ["purescript"],
   "dependencies": {
-    "purescript-free": "*",
     "purescript-arrays": "*",
     "purescript-jquery": "*",
     "purescript-reactive": "*",
